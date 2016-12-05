@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				font-size: 30px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+		    var str='';
+		    var weeks=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+			
+			fn();
+			
+			setInterval(fn,1000);
+			function fn(){
+				var itime=new Date();
+				//年
+				var year=itime.getFullYear();
+				//月
+				var month=itime.getMonth()+1;
+				//周
+				var week=weeks[itime.getDay()];
+				//日
+				var day=itime.getDate();
+				//小时
+				var hour=itime.getHours();
+				//分
+				var minutes=itime.getMinutes();
+				//秒
+				var second=itime.getSeconds();
+				str=year+' 年'+' '+month+' 月'+' '+day+' 日'+' '+week+' '+toZero(hour)+':'+toZero(minutes)+':'+toZero(second);
+			    document.body.innerHTML=str;
+			}
+			 
+			//补零
+			function toZero(n){
+				return n < 10 ?  '0' + n : '' + n;
+			}
+		</script>
+	</body>
+</html>
